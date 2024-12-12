@@ -125,13 +125,19 @@ class cardSuitArr {
     diamonds: Card[];
     hearts: Card[];
     clubs: Card[]
+    constructor() {
+        this.diamonds= []
+        this.hearts = []
+        this.clubs = []
+        this.spades =[]
+    }
 }
 
 let cardSuitObj = new cardSuitArr()
-cardSuitObj.spades=[];
-cardSuitObj.clubs =[];
-cardSuitObj.hearts =[];
-cardSuitObj.diamonds = [];
+// cardSuitObj.spades=[];
+// cardSuitObj.clubs =[];
+// cardSuitObj.hearts =[];
+// cardSuitObj.diamonds = [];
 console.log(cardSuitObj);
 cards.reduce((acamulator, currentV)=>{
  //   console.log(currentV);
