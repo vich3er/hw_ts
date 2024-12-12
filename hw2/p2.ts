@@ -127,9 +127,14 @@ class cardSuitArr {
     clubs: Card[]
 }
 
-
 let cardSuitObj = new cardSuitArr()
+cardSuitObj.spades=[];
+cardSuitObj.clubs =[];
+cardSuitObj.hearts =[];
+cardSuitObj.diamonds = [];
+console.log(cardSuitObj);
 cards.reduce((acamulator, currentV)=>{
+ //   console.log(currentV);
     let suit = currentV.suit;
     switch (suit){
         case 'spade':
