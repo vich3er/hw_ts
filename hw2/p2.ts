@@ -18,7 +18,7 @@ class Courses {
         return this._title;
     }
 
-    get monthDuration() {
+    get monthDuration(): number {
         return this._monthDuration;
     }
 }
@@ -32,6 +32,7 @@ let coursesAndDurationArray =Courses.makeObjFromArr([
     {title: 'Frontend', monthDuration: 4}
 ]);
 
+console.log(coursesAndDurationArray);
 // -- відсортувати його за спаданням за monthDuration
 console.log(coursesAndDurationArray.sort((a, b) => {
     return b.monthDuration - a.monthDuration;
@@ -170,21 +171,36 @@ console.log(cardSuitObj)
 // взяти з arrays.js масив coursesArray
 
 class CoursesSecond extends Courses{
-    constructor(title: string, monthDuration: number, hourDuration:number,modules:string[] ) {
+    // get hourDuration(): number {
+    //     return this._hourDuration;
+    // }
+    //
+    // get modules(): string[] {
+    //     return this._modules;
+    // }
+    get hourDuration(): number {
+        return this._hourDuration;
+    }
+
+    get modules(): string[] {
+        return this._modules;
+    }
+
+    constructor(title: string, monthDuration: number, private _hourDuration:number, private _modules:string[] ) {
         super(title, monthDuration);
     }
-    hourDuration: number;
-    modules: string[]
+    // private _hourDuration: number;
+    // private _modules: string[]
     static makeObjFromArr(arr: {title: string, monthDuration: number, hourDuration:number,modules:string[]}[]):CoursesSecond[]{
+        let newArr: CoursesSecond[] = []
         for (let el of arr){
-            let newArr:  CoursesSecond[] = [];
-            for (let el of arr){
                 newArr.push(new CoursesSecond(el.title, el.monthDuration, el.hourDuration, el.modules))
-            }
-            return newArr;
         }
+        return newArr;
 
     }
+
+
 
 }
 
@@ -258,13 +274,13 @@ let coursesArray = CoursesSecond.makeObjFromArr([
         modules: ['html', 'css', 'js', 'mysql', 'mongodb', 'react', 'angular', 'aws', 'docker', 'git', 'sass']
     }
 ])
-
+console.log(coursesArray);
 // --написати пошук всіх об'єктів, в яких в modules є sass
 let haveSass:CoursesSecond[] = coursesArray.filter((value)=>{
     return  value.modules.includes('sass');
 })
-console.log(haveSass);
-// --написати пошук всіх об'єктів, в яких в modules є docker
+ console.log(haveSass);
+// // --написати пошук всіх об'єктів, в яких в modules є docker
 let haveDocker:CoursesSecond[] = coursesArray.filter((value)=>{
     return value.modules.includes('docker');
 })
